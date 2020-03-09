@@ -1,0 +1,187 @@
+<html>
+ <head>
+	<title>Тестовая веб-форма</title>
+    <meta http-equiv="content-type" content= "text/html" charset="utf-8"/>
+	
+	<script language="javascript">
+	//alert("script called");
+		function dayGenerator()
+		{
+			//alert("script started");
+			myStr = '<option value="1" selected="selected">1</option>';
+			document.getElementById("myDay").innerHTML = document.getElementById("myDay").innerHTML + myStr;
+			for (i=2; i<=31; i++)
+			{
+				myStr = '<option value="' + i +'">'+i+'</option>';
+				document.getElementById("myDay").innerHTML = document.getElementById("myDay").innerHTML + myStr;
+			}
+		}
+		
+		function yearGenerator()
+		{
+			//alert("script started");
+			myStr = '<option value="1900" selected="selected">1900</option>';
+			document.getElementById("myYear").innerHTML = document.getElementById("myYear").innerHTML + myStr;
+			for (i=1901; i<=2011; i++)
+			{
+				myStr = '<option value="' + i +'">'+i+'</option>';
+				document.getElementById("myYear").innerHTML = document.getElementById("myYear").innerHTML + myStr;
+			}
+		}
+		
+		function checkEMail(eMailStr)
+		{
+			isGav = false;
+			isDot = false;
+			
+			for (i=0; i<eMailStr.length; i++)
+			{
+				//document.getElementById("myDebug").innerHTML = "" + eMailStr.length + "<br>";
+				//document.getElementById("myDebug").innerHTML = document.getElementById("myDebug").innerHTML + "i= " + i + "<br>";
+				
+				switch (eMailStr[i])
+				{
+					case "@" : isGav = true;
+					break;
+					case "." : isDot = true;
+					break;
+				}
+				
+				document.getElementById("myDebug").innerHTML = document.getElementById("myDebug").innerHTML + "" + isGav + "<br>" + isDot + "<br>";
+				
+			}
+			
+			if (isGav)
+				{
+					if (isDot)
+					{
+						document.getElementById("afterEMail").innerHTML = "похоже на e-mail";
+					}
+					else
+					{
+						document.getElementById("afterEMail").innerHTML = "Неправильно введен e-mail!!!";
+					}	
+				}
+				else
+				{
+					document.getElementById("afterEMail").innerHTML = "Введите e-mail!!!";
+				}
+		}
+		
+		function checkEMailSame()
+		{
+			email1 = document.getElementById("email").value;
+			email2 = document.getElementById("email2").value;
+			//alert (email1 + "   " + email2);
+			if (email1 != email2)
+			{
+				document.getElementById("afterEMail").innerHTML = "Введенный e-mail НЕ совпадает!!!";
+				document.getElementById("afterEMail2").innerHTML = "Введенный e-mail НЕ совпадает!!!";
+			}
+			else
+			{
+				document.getElementById("afterEMail").innerHTML = "Введенный e-mail сопадает. Спасибо.";
+				document.getElementById("afterEMail2").innerHTML = "Введенный e-mail сопадает. Спасибо.";
+			}
+		}
+		
+		function nameValidator(nameStr)
+		{
+			var regx = /[A-Za-z]/i;
+			if (regx.exec(nameStr) != null)
+			{
+				document.getElementById("afterName").innerHTML = "Имя должно содержать только русские буквы!";
+			}
+			else
+			{
+				document.getElementById("afterName").innerHTML = "";
+			}
+			//}
+		}
+		
+		function nameSValidator(nameStr)
+		{
+			var regx = /[A-Za-z]/i;
+			if (regx.exec(nameStr) != null)
+			{
+				document.getElementById("afterSName").innerHTML = "Фамилия должно содержать только русские буквы!";
+			}
+			else
+			{
+				document.getElementById("afterSName").innerHTML = "";
+			}
+		}
+		
+	</script>
+	
+ </head>
+ <body onLoad="dayGenerator(); yearGenerator();">
+	<table>
+		<tr>
+			<td>
+				<form action="myData.js" method="get">
+					Имя: <br>
+					<input id="myName" type="text" size=20 value="" onChange="nameValidator(this.value);"/> 
+					<div id="afterName">
+					</div>
+					<br>
+					Фамилия: <br>
+					<input id="mySName" type="text" size=20 value="" onChange="nameSValidator(this.value);"/> 
+					<div id="afterSName">
+					</div>
+					<br>
+					Пол: <br>
+					<input type="radio" name="sex" value="m"/> Мужской <br>
+					<input type="radio" name="sex" value="w"/> Женский <br>
+					Дата рождения: <br>
+					<select name="myDay" id="myDay" size="1" >
+					</select> &nbsp &nbsp &nbsp
+					<select name="month" id="myMonth" size="1">
+						<option selected="selected" value="01">Январь</option>
+						<option value="02">Февраль</option>
+						<option value="03">Март</option>
+						<option value="04">Апрель</option>
+						<option value="05">Май</option>
+						<option value="06">Июнь</option>
+						<option value="07">Июль</option>
+						<option value="08">Август</option>
+						<option value="09">Сентябрь</option>
+						<option value="10">Октябрь</option>
+						<option value="11">Ноябрь</option>
+						<option value="12">Декабрь</option>
+					</select>  &nbsp &nbsp &nbsp
+					<select name="myYear" id="myYear" size="1" >
+					</select> &nbsp &nbsp &nbsp
+					<br>
+					Введите телефон в формате x-xxx-xxx, где вместо x должна быть цифра: <br>
+					<input type="tel" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}" value=""> <br>
+					На чём нравится путешествовать: <br>
+					<input type="checkbox" name="transport" value="airplane"  /> Самолет<br> 
+					<input type="checkbox" name="transport" value="train" /> Поезд<br> 
+					<input type="checkbox" name="transport" value="car" /> Автомобиль<br> 
+					<input type="checkbox" name="transport" value="bus" /> Автобус<br> 
+					Адрес электропочты: <br>
+					<input type="text" name="email" id="email" value="" size="25" onChange="checkEMail(this.value)" />  
+					<div id="afterEMail">
+					</div>
+					<br>
+					Повторите адрес электропочты: <br>
+					<input type="text" name="email2" id="email2" value="" size="25" onChange="checkEMailSame()" />  
+					<div id="afterEMail2">
+					</div>
+					<br>					
+					<input type="reset" value="Очистка формы" /><br><br><br>
+					<input type="button" value="Отправить" onClick=""/>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<div id='myDiv'>
+	 
+	</div>
+	<script language="javascript" src="myscript.js"> </script>
+	<!--<div id="myDebug">
+		debug
+	</div> -->
+ </body>
+</html>

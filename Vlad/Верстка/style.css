@@ -1,0 +1,48 @@
+li{
+    list-style: none;
+}
+.block-header{
+    background: black;
+color:white;
+margin:0px;
+box-sizing: border-box;
+}
+.block{
+    width:30%;
+}
+
+
+h2{
+    border-bottom: 1px solid oldlace;
+}
+
+.block-header p:nth-child(2n+1){
+    color:grey;
+    border-top: 1px solid oldlace;
+}
+
+
+.block-cotent{
+    text-align: center;
+}
+
+
+
+
+.special-for-alina{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+   
+}
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.block-header p:nth-child(4){
+    background-color: orange;
+}

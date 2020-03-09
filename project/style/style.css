@@ -1,0 +1,135 @@
+.awesome-block{
+    text-align: center;
+    
+}
+
+*{
+   box-sizing: border-box;
+}
+
+
+.card{
+   float: left;
+   margin: 80px auto;
+   width: 33.3%;
+   padding: 30px 30px;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.awesome-block{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.pricing{
+    padding-top: 100px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding-bottom: 80px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+li{
+    list-style: none;
+    background-color: white;
+    border: 1px solid #f5f5f5;
+    height: 40px;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.header{
+    color: white;
+    background-color: black;
+    border-bottom: 2px solid orange;
+   
+}
+
+
+.price{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+
+
+
+
+.header p:nth-child(4){
+    background-color: orange;
+    border-bottom: 10px solid orange;
+    margin-bottom: auto;
+
+}
+
+
+
+
+.options-block{    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+   
+}
+
+
+.options{
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    box-sizing: border-box;
+    margin: 40px;
+    justify-content: flex-end;
+
+}
+
+.footer{
+    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 65px; 
+
+    background-image: radial-gradient(circle, rgba(255,255,255,1), rgba(40,37,37,0.7) 0%),url(../image/background.png);
+    
+   
+    background-size: contain;
+    
+    
+
+
+}
+
+.footer-block{
+    color: white; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 1100px;
+
+   
+}
+
+.button{
+    background-image: none; 
+    background: transparent;
+    background-color: transparent;
+}
+.download-link{
+    color: white;
+}
